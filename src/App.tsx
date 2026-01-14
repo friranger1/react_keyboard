@@ -11,22 +11,23 @@ export class App extends React.Component<Props, State> {
     lastPressedKey: '',
   };
 
-  keyUpButton = (event: KeyboardEvent) => {
+  pressButton = (event: KeyboardEvent) => {
     this.setState({
       lastPressedKey: event.key,
     });
   };
 
   componentDidMount(): void {
-    window.addEventListener('keyup', this.keyUpButton);
+    window.addEventListener('keyup', this.pressButton);
   }
 
   componentWillUnmount(): void {
-    window.removeEventListener('keyup', this.keyUpButton);
+    window.removeEventListener('keyup', this.pressButton);
   }
 
   render() {
     const { lastPressedKey } = this.state;
+
     return (
       <div className="App">
         <p className="App__message">
